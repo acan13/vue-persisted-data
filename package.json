@@ -1,0 +1,19 @@
+{
+  "name": "vue-persisted-data",
+  "version": "0.0.1",
+  "description": "Hello World!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acan13/vue-persisted-data.git"
+  },
+  "author": "Allan Cannon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acan13/vue-persisted-data/issues"
+  },
+  "homepage": "https://github.com/acan13/vue-persisted-data#readme"
+}
