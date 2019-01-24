@@ -1,7 +1,7 @@
 {
   "name": "vue-persisted-data",
   "version": "0.0.1",
-  "description": "Hello World!",
+  "description": "Persist data without losing reactivity.",
   "main": "lib/mixin.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
