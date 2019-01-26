@@ -15,7 +15,7 @@ Common use cases are:
 * [Demo](#demo)
 * [Installation](#installation)
 * [Usage](#usage)
-* [API](#api)
+* [config](#config)
 * [Examples](#examples)
 
 ## Demo
@@ -79,7 +79,10 @@ export default {
 ```
 
 
-## API
+## Config
+
+### hydrateFn
+The function used to hydrate the reactive data from persisted storage. Default behavior is to make a type comparison between the key value pairs of the persisted data and the default data. Where types differ, the default data overwrites the persisted data. Where types are the same, the persisted data is hydrated into the component. Where the values themselves are objects, the process continues recursively. 
 
 COMING SOON
 TODO:
