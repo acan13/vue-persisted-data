@@ -58,7 +58,7 @@ Module:
 
 import vuePersistedData from 'vue-persisted-data'
 export default {
-    mixins: [persistedData],
+    mixins: [vuePersistedData()],
     data() {
         return {
             editName: '',
