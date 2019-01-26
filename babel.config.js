@@ -13,4 +13,4 @@ const presets = [
     ],
 ];
 
-module.exports = { presets };
+module.exports = { presets }; // eslint-disable-line no-undef

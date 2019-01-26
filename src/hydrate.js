@@ -1,4 +1,4 @@
-function _hydrate(dataValue, structureValue, config = {}) {
+function _hydrate(dataValue, structureValue) {
     if (dataValue === undefined) {
         return structureValue;
     }
