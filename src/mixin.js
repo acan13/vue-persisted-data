@@ -1,6 +1,6 @@
 import { hydrate } from './hydrate';
 
-function _getVuePersistedDataMixin(config = {}) {
+export default function vuePersistedData(config = {}) {
     return {
         data(){
             let dataObject = {};
@@ -33,5 +33,3 @@ function _getVuePersistedDataMixin(config = {}) {
         }
     }
 }
-
-export let vuePersistedDataMixin = _getVuePersistedDataMixin;
