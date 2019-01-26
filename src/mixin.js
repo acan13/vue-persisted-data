@@ -1,6 +1,6 @@
 import { hydrate } from './hydrate';
 
-export default function vuePersistedData(config = {}) {
+export default function vuePersistedData({hydrateFn = hydrate} = {}) {
     return {
         data(){
             let dataObject = {};
@@ -17,7 +17,7 @@ export default function vuePersistedData(config = {}) {
 
                 let persistedData = localStorage;
 
-                dataObject = hydrate(persistedData, structureObject);
+                dataObject = hydrateFn(persistedData, structureObject);
             }
             return dataObject;
         },
