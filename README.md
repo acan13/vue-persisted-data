@@ -3,6 +3,8 @@
 
 A Vue mixin that allows you to easily add persistence to vue reactive data properties. Simply add a persistedData field to your component and treat the properties the same way you would normal data properties. Vue Persisted Data handles everything.
 
+*Note: This project is in pre-release beta. Basic functionality works but features may be missing or broken*
+
 Common use cases are:
 
 * User settings that you want to persist between sessions.
