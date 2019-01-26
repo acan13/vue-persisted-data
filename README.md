@@ -24,7 +24,7 @@ COMING SOON!
 
 Download via npm:
 ```shell
-$ npm install vue-persisted-state --save
+$ npm install vue-persisted-data --save
 ```
 
 Include via cdn:
