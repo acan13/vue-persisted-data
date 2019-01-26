@@ -30,6 +30,6 @@ export default function vuePersistedData({hydrateFn = hydrate} = {}) {
                     }, {deep: true});
                 }
             }
-        }
+        },
     }
 }
