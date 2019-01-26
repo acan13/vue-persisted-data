@@ -5,17 +5,19 @@ function _getVuePersistedDataMixin(config = {}) {
         data(){
             let dataObject = {};
             if (this.$options.persistedData) {
-                let persistedDataFn = this.$options.persistedData;
-                if (typeof persistedDataFn !== 'function') {
-                    throw `persistedData must be a function. Current value: ${persistedDataFn}`;
+                let structureObjectFn = this.$options.persistedData;
+                if (typeof structureObjectFn !== 'function') {
+                    throw `persistedData must be a function. Current value: ${structureObjectFn}`;
                 }
 
-                let persistedData = persistedDataFn.call(this);
-                if (typeof persistedData !== 'object' || Array.isArray(persistedData)) {
-                    throw `persistedData function must return an object. Current value: ${persistedData}`;
+                let structureObject = structureObjectFn.call(this);
+                if (typeof structureObject !== 'object' || Array.isArray(structureObject)) {
+                    throw `persistedData function must return an object. Current value: ${structureObject}`;
                 }
 
-                dataObject = hydrate(dataObject);
+                let persistedData = localStorage;
+
+                dataObject = hydrate(persistedData, structureObject);
             }
             return dataObject;
         },
