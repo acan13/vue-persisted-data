@@ -1,11 +1,103 @@
-Package is in prerelease beta. Basic functionality should be working, but many features are missing.
 
-Vue Persisted State makes it easy to persist data from your components. Simply add properties to a persistedData the same way you would have added them to data and vue persisted state will handle reactivity and persistence for you.
+# Vue Persisted Data
+
+A Vue mixin that allows you to easily add persistence to vue reactive data properties. Simply add a persistedData field to your component and treat the properties the same way you would normal data properties. Vue Persisted Data handles everything.
+
+Common use cases are:
+
+* User settings that you want to persist between sessions.
+* TBD
+
+## Table of Contents
+
+* [Demo](#demo)
+* [Installation](#installation)
+* [Usage](#usage)
+* [API](#api)
+* [Examples](#examples)
+
+## Demo
+
+COMING SOON!
+
+## Installation
+
+Download via npm:
+```shell
+$ npm install vue-persisted-state --save
+```
+
+Include via cdn:
+```html
+COMING SOON
+```
+
+## Usage
+
+Module:
+
+```javascript
+<template>
+    <div>
+        <div>
+            Hello, {{ name }}!
+        </div>
+        <div>
+            Change Name: 
+            <input type="text" v-model="editName">
+            <button @click="changeName">Change Name</button>
+        </div>
+    </div>
+</template>
+
+<script>
+// the name property will automatically populate with the default value if none has already been set,
+// or the persisted value if one has already been set
+
+import vuePersistedData from 'vue-persisted-data'
+export default {
+    mixins: [persistedData],
+    data() {
+        return {
+            editName: '',
+        };
+    },
+    persistedData() {
+        return {
+            name: "New User", // 'New User' is the default value
+        };
+    },
+    methods: {
+        changeName() {
+            this.name = this.editName; // reactivity and persistence is handled automatically
+        },
+    },
+};
+</script>
+```
 
 
-TO DO
-Lint
-Test
-Feature: Ability to add custom hydrate function
-Feature: Ability to specify persisted storage
-Feature: Ability to specify persisted storage key
+## API
+
+COMING SOON
+TODO:
+Feature: set persisted key
+Feature: set custom hydrate function
+Feature: set persist method
+Linting
+Testing
+
+#### Options reference
+
+COMING SOON
+
+## Examples:
+
+COMING SOON
+
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2019-present, Allan Cannon
