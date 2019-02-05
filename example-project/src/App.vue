@@ -1,17 +1,25 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <div>{{ test }}</div>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import vuePersistedData from './../../src/mixin';
 
 export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  mixins: [vuePersistedData()],
+  persistedData() {
+    return {
+      test: "Allan",
+    }
   }
 }
 </script>

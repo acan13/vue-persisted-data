@@ -1,6 +1,6 @@
 export function setter(key, value, rootKey = "") {
     if (!rootKey) {
-        localStorage.setItem(key, JSON.stringify(value));
+        localStorage.setItem(key, value);
         return;
     }
 
@@ -11,4 +11,12 @@ export function setter(key, value, rootKey = "") {
     }
     currentStoredValues[key] = value;
     localStorage.setItem(rootKey, JSON.stringify(currentStoredValues));
+}
+
+export function getter(rootKey = "") {
+    if (!rootKey) {
+        return localStorage;
+    }
+
+    return JSON.parse(localStorage.getItem(rootKey));
 }

@@ -1,6 +1,6 @@
 {
   "name": "vue-persisted-data",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Persist data without losing reactivity.",
   "main": "lib/mixin.js",
   "scripts": {

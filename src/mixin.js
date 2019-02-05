@@ -1,5 +1,5 @@
 import { hydrate } from './hydrate';
-import { setter } from './localStorageHelpers';
+import { setter, getter } from './localStorageHelpers';
 
 export default function vuePersistedData({hydrateFn = hydrate, storageKey = ""} = {}) {
     return {
@@ -16,8 +16,7 @@ export default function vuePersistedData({hydrateFn = hydrate, storageKey = ""} 
                     throw `persistedData function must return an object. Current value: ${structureObject}`;
                 }
 
-                let persistedDataString = storageKey ? localStorage.getItem(storageKey) : localStorage;
-                let persistedData = JSON.parse(persistedDataString);
+                let persistedData = getter(storageKey);
 
                 dataObject = hydrateFn(persistedData, structureObject);
             }
@@ -29,7 +28,7 @@ export default function vuePersistedData({hydrateFn = hydrate, storageKey = ""} 
                 for (const key of Object.keys(persistedData)) {
                     this.$watch(key, function(newValue) {
                         setter(key, newValue, storageKey);
-                    }, {deep: true});
+                    }, {deep: true, immediate: true});
                 }
             }
         },
