@@ -1,6 +1,6 @@
 export function setter(key, value, rootKey = "") {
     if (!rootKey) {
-        localStorage.setItem(key, value);
+        localStorage.setItem(key, JSON.stringify(value));
         return;
     }
 
@@ -13,10 +13,36 @@ export function setter(key, value, rootKey = "") {
     localStorage.setItem(rootKey, JSON.stringify(currentStoredValues));
 }
 
-export function getter(rootKey = "") {
+export function getAll(rootKey = "") {
     if (!rootKey) {
-        return localStorage;
+        let jsonStoredValues = localStorage;
+        let parsedStoredValues = {};
+        for (const key of Object.keys(jsonStoredValues)) {
+            try {
+                parsedStoredValues[key] = JSON.parse(jsonStoredValues[key]);
+            } catch (error) {
+                // do nothing
+            }
+        }
+        return parsedStoredValues;
     }
 
-    return JSON.parse(localStorage.getItem(rootKey));
+    try {
+        return JSON.parse(localStorage.getItem(rootKey));
+    } catch (error) {
+        return;
+    }
+
+}
+
+export function getter(key, rootKey = "") {
+    if (!rootKey) {
+        try {
+            return JSON.parse(localStorage.getItem(key));
+        } catch (error) {
+            // do nothing            
+        }
+    }
+
+    return JSON.parse(localStorage.getItem(rootKey))[key];
 }

@@ -1,5 +1,5 @@
 import { hydrate } from './hydrate';
-import { setter, getter } from './localStorageHelpers';
+import { setter, getAll } from './localStorageHelpers';
 
 export default function vuePersistedData({hydrateFn = hydrate, storageKey = ""} = {}) {
     return {
@@ -16,7 +16,7 @@ export default function vuePersistedData({hydrateFn = hydrate, storageKey = ""} 
                     throw `persistedData function must return an object. Current value: ${structureObject}`;
                 }
 
-                let persistedData = getter(storageKey);
+                let persistedData = getAll(storageKey);
 
                 dataObject = hydrateFn(persistedData, structureObject);
             }
