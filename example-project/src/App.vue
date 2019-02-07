@@ -1,26 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <div>{{ test }}</div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>Hello, {{ name }}!</div>
+    <h3>Change Name</h3>
+    <input v-model="name" type="text">
+    <input v-model="test.first" type="text">
+    <input v-model="test.last" type="text">
+    {{ test.first }} {{ test.last }}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import vuePersistedData from './../../src/mixin';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+
   },
   mixins: [vuePersistedData()],
   persistedData() {
     return {
-      test: "Allan",
+      name: "User",
+      test: {
+        first: "Allan",
+        last: "Cannon",
+      }
     }
-  }
+  },
 }
 </script>
 
